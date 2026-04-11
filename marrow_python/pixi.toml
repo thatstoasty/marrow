@@ -1,0 +1,45 @@
+[workspace]
+authors = ["Krisztian Szucs <szucs.krisztian@gmail.com>"]
+channels = [
+  "https://prefix.dev/pontoneer",
+  "https://conda.modular.com/max-nightly/",
+  "conda-forge",
+  "https://prefix.dev/pixi-build-backends"
+]
+platforms = ["osx-arm64", "linux-64"]
+preview = ["pixi-build"]
+
+[package]
+name = "marrow_python"
+version = "0.1.0"
+
+[dependencies]
+mojo = "==0.26.3.0.dev2026032105"
+marrow = { path = "../marrow" }
+
+[package.build]
+backend = { name = "pixi-build-mojo", version = "0.1.*" }
+
+[package.build-dependencies]
+mojo-compiler = "==0.26.3.0.dev2026032105"
+
+[package.host-dependencies]
+mojo = "==0.26.3.0.dev2026032105"
+
+[package.run-dependencies]
+mojo = "==0.26.3.0.dev2026032105"
+marrow = { path = "../marrow" }
+
+[tasks]
+build_python = { cmd = "mojo build -I . marrow_python/lib.mojo --emit shared-lib -o marrow_python/marrow.so" }
+
+[environments]
+docs = { features = ["docs"], solve-group = "default" }
+
+# Docs — Documentation generation tooling and tasks.
+[feature.docs.dependencies]
+quarto = ">=1.6,<2"
+
+[feature.docs.tasks]
+docs = { cmd = "quarto render docs/", depends-on = ["build_python"], env = { PYTHONPATH = "python" } }
+docs_preview = { cmd = "quarto preview docs/", depends-on = ["build_python"], env = { PYTHONPATH = "python" } }

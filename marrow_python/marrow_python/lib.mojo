@@ -3,12 +3,12 @@
 from std.os import abort
 from std.python import PythonObject
 from std.python.bindings import PythonModuleBuilder
-from dtypes import add_to_module as add_dtypes
-from arrays import add_to_module as add_arrays
-from scalars import add_to_module as add_scalars
-from compute import add_to_module as add_compute
-from schema import add_to_module as add_schema
-from tabular import add_to_module as add_tabular
+from marrow_python.dtypes import add_to_module as add_dtypes
+from marrow_python.arrays import add_to_module as add_arrays
+from marrow_python.scalars import add_to_module as add_scalars
+from marrow_python.compute import add_to_module as add_compute
+from marrow_python.schema import add_to_module as add_schema
+from marrow_python.tabular import add_to_module as add_tabular
 
 
 @export

@@ -31,7 +31,7 @@ from marrow.scalars import AnyScalar
 import marrow.dtypes as dt
 
 from pontoneer import SequenceProtocolBuilder
-from helpers import pymethod, def_display
+from marrow_python.helpers import pymethod, def_display
 
 
 # ---------------------------------------------------------------------------

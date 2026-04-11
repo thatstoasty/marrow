@@ -40,8 +40,7 @@ from marrow.dtypes import (
     float32,
     float64,
 )
-from helpers import pymethod
-from helpers import marrow_module
+from marrow_python.helpers import pymethod, marrow_module
 
 
 # ---------------------------------------------------------------------------

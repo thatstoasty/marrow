@@ -3,7 +3,7 @@ from std.python.bindings import PythonModuleBuilder
 from marrow.schema import Schema
 from marrow.dtypes import Field
 from marrow.c_data import CArrowSchema
-from helpers import marrow_module
+from marrow_python.helpers import marrow_module
 
 
 def _schema_arrow_c_schema(

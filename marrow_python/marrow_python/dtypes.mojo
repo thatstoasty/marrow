@@ -4,7 +4,7 @@ from std.python import PythonObject
 from std.python.bindings import PythonModuleBuilder
 from std.memory import ArcPointer
 import marrow.dtypes as dt
-from helpers import marrow_module
+from marrow_python.helpers import marrow_module
 
 
 def null() raises -> PythonObject:

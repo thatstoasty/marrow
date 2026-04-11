@@ -18,7 +18,7 @@ from marrow.kernels.compare import (
     greater_equal,
 )
 from marrow.kernels.filter import filter_ as _filter_overloaded, drop_nulls
-from helpers import pyfunction
+from marrow_python.helpers import pyfunction
 
 
 # TODO: use explicit AnyArray types in the helper functions below

@@ -18,7 +18,7 @@ from marrow.dtypes import Field
 from std.memory import ArcPointer
 from marrow.c_data import CArrowSchema, CArrowArray, CArrowArrayStream
 from marrow.kernels.join import hash_join
-from helpers import pymethod, def_display
+from marrow_python.helpers import pymethod, def_display
 
 
 # ---------------------------------------------------------------------------
