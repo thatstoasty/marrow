@@ -398,21 +398,21 @@ def pytest_sessionstart(session):
     if _python_excluded(config):
         return
 
-    print("building marrow_python/marrow_python/marrow.so ...", flush=True)
-    opt = "-O3" if config.getoption("--benchmark") else "-O1"
-    cmd = (
-        ["mojo", "build", opt, "-I", "."]
-        # ["pixi", "run", "python_build"]
-        + MojoRunner.asan_flags(config)
-        + ["marrow_python/lib.mojo", "--emit", "shared-lib", "-o", "marrow_python/marrow.so"]
-    )
-    result = subprocess.run(cmd, cwd=config.rootpath / "marrow_python", capture_output=True, text=True)
-    if result.returncode != 0:
-        pytest.exit(
-            f"Failed to build python/marrow.so:\n{result.stderr}",
-            returncode=1,
-        )
-    print("python/marrow.so built successfully", flush=True)
+    # print("building marrow_python/marrow_python/marrow.so ...", flush=True)
+    # opt = "-O3" if config.getoption("--benchmark") else "-O1"
+    # cmd = (
+    #     ["mojo", "build", opt, "-I", "."]
+    #     # ["pixi", "run", "python_build"]
+    #     + MojoRunner.asan_flags(config)
+    #     + ["marrow_python/lib.mojo", "--emit", "shared-lib", "-o", "marrow_python/marrow.so"]
+    # )
+    # result = subprocess.run(cmd, cwd=config.rootpath / "marrow_python", capture_output=True, text=True)
+    # if result.returncode != 0:
+    #     pytest.exit(
+    #         f"Failed to build python/marrow.so:\n{result.stderr}",
+    #         returncode=1,
+    #     )
+    # print("python/marrow.so built successfully", flush=True)
 
 
 def pytest_collection_modifyitems(config, items):

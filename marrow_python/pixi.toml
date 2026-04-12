@@ -34,7 +34,23 @@ marrow = { path = "../marrow" }
 build_python = { cmd = "mojo build -I . marrow_python/lib.mojo --emit shared-lib -o marrow_python/marrow.so" }
 
 [environments]
+dev = { features = ["dev"], solve-group = "default" }
 docs = { features = ["docs"], solve-group = "default" }
+
+[feature.dev.dependencies]
+pytest = ">=9.0.2,<10"
+pytest-benchmark = ">=5.2.3,<6"
+pytest-xdist = ">=3,<4"
+
+[feature.dev.tasks]
+test_mojo = { cmd = "pytest --mojo -v -n auto --dist=loadfile" }
+test_mojo_asan = { cmd = "pytest --mojo --asan -v -n auto --dist=loadfile" }
+test_python = { cmd = "pytest --python -v -n auto --dist=loadfile" }
+test_gpu = { cmd = "pytest --gpu -v -n auto --dist=loadfile" }
+test = { cmd = "pytest -v -n auto --dist=loadfile" }
+bench_mojo = { cmd = "pytest --benchmark --mojo -v" }
+bench_python = { cmd = "pytest --benchmark --python -v" }
+bench = { cmd = "pytest --benchmark -v" }
 
 # Docs — Documentation generation tooling and tasks.
 [feature.docs.dependencies]
