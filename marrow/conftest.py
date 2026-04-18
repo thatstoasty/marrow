@@ -501,7 +501,6 @@ def pytest_configure(config):
     )
 
 
-
 class MojoTestFile(pytest.File):
     def collect(self):
         is_gpu = self.path.stem.endswith("_gpu")
